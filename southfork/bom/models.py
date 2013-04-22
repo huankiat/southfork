@@ -20,7 +20,7 @@ class ProductInfo(models.Model):
         ordering = ['part_number']
 
     def __unicode__(self):
-        return u"%s %s" % (self.part_number, self.Description, self.ProductGeneration)
+        return u"%s" % (self.part_number)
 
 class Components(models.Model):
     ComponentID = models.CharField(max_length=50,primary_key=True,unique=True,null=False)
