@@ -1,0 +1,45 @@
+
+<h1>{{ "Components View" }}</h1>
+
+<form METHOD="LINK" ACTION="/bom/Components/add_components/">
+<INPUT TYPE="submit" VALUE="Add BOM">
+</form>
+
+<form METHOD="LINK" ACTION="/bom/productinfo/">
+<INPUT TYPE="submit" VALUE="Back to Product View">
+</form>
+
+
+<ul>
+	<table border="1" style="width:200px;">
+	<tr class="headers">
+		<td>ComponentID</td>
+		<td>BOMID</td>
+		<td>Description</td>
+		<td>ComponentName</td>
+		<td>Revision</td>
+		<td>TODate</td>
+		<td>ComponentCategory</td>
+		<td>Manufacturers</td>
+		<td>ComponentDrawing</td>
+		<td>Delete</td>
+	</tr>
+	{% for p in components_list %}
+	<tr>
+		<td>{{ p.ComponentID }}</td>
+		<td>{{ p.BOMID }}</td>
+		<td>{{ p.Description }}</td>
+		<td>{{ p.ComponentName }}</td>
+		<td>{{ p.Revision }}</td>
+		<td>{{ p.TODate }}</td>
+		<td>{{ p.ComponentCategory }}</td>
+		<td>{{ p.Manufacturers }}</td>
+		<td>{{ p.ComponentDrawing }}</td>
+		<td><a href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
+		<td>Edit</td>
+		
+	</tr>
+	{% endfor %}
+	</table>
+</ul>
+

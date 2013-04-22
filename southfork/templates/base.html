@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="/static/global.css">
+	<script src="/static/jquery.1.7.2.js"></script>
+    <script src="/static/menuscripts.js"></script>
+    <script src="/static/jquery-ui-1/js/jquery-ui-1.8.22.custom.min.js"></script>
+
+ 	<title>VF NeXus Central</title>
+</head>
+
+<body>
+<div id="top">
+    <div id = "nexuslogo">
+      	<a href="/">
+        <img src="/media/nexus_p3.jpg" width="132" />
+        </a>
+    </div>
+    
+    <div id = "clientlogo">
+    	<img class = "logo" src="/media/Ba Gua (Feng-Shui-Mirror).gif" />
+      	<h1>Client Name</h1>
+   	</div>   
+    
+    <div id = "system">
+    	{% if request.user.is_authenticated %}
+			{% include 'tags/system_login.html' %}
+		{% else %}
+			{% include 'tags/system.html' %}
+		{% endif %}
+    </div>
+    
+    <div id = "modulemenu">
+      	<h1><a href="#"> {% block moduletitle %}{% endblock %}</a></h1>
+        <div id ="modules">
+        	{% include "tags/modules.html" %}
+        </div>
+        <script> $("#modules").hide(); </script>
+    </div>
+        
+		<script>
+			$("#modulemenu").hover(
+				function() {
+					$("#modules").show();
+				},
+				function() {
+					$("#modules").hide();
+				}
+			);
+		</script>
+</div>
+
+<div id = "left"> 
+    <div id = "modulesubmenu">
+		{% block moduletag %}{% endblock %}
+    </div>
+</div>
+        
+<div id= "centre">  
+    <div id = "breadcrumb">
+        <p> navigation breadcrumb</p>
+    </div>
+    	
+    <div id = "newsflash">
+       <p> news flash </p>        
+    </div>	
+    
+    <div id = "main">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+  
+   
+</body>
+</html>

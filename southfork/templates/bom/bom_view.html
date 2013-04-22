@@ -1,0 +1,32 @@
+
+<h1>{{ "BOM View" }}</h1>
+
+<form METHOD="LINK" ACTION="/bom/BOMInfo/add_bom/">
+<INPUT TYPE="submit" VALUE="Add BOM">
+</form>
+
+<form METHOD="LINK" ACTION="/bom/productinfo/">
+<INPUT TYPE="submit" VALUE="Back to Product View">
+</form>
+
+
+<ul>
+	<table border="1" style="width:200px;">
+	<tr class="headers">
+		<td>BOM ID</td>
+		<td>Description</td>
+		<td>Delete</td>
+		<td>Edit</td>
+	</tr>
+	{% for p in bom_list %}
+	<tr>
+		<td>{{ p.BOMID }}</td>
+		<td>{{ p.Description }}</td>
+		<td><a href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
+		<td>Edit</td>
+		
+	</tr>
+	{% endfor %}
+	</table>
+</ul>
+

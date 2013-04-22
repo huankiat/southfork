@@ -1,0 +1,15 @@
+<ul id="modulelist">
+	<li><a href="#" onClick="javascript:click_sub('/tags/product_submenu.html', 'Products');"> Products </a> </li>
+	<li><a href="#" onClick="javascript:click_sub('/tags/process_submenu.html', 'Processes');"> Processes </a></li>
+    <li><a href="#" onClick="javascript:click_sub('/tags/factory_submenu.html', 'Factories');"> Factories </a></li>
+	<li><a href ="#"  onClick="javascript:click_sub('/tags/project_submenu.html', 'Module');"> Project </a></li>
+    <li><a href="#" onClick="javascript:click_sub('/tags/addmodule_submenu.html', 'Factories');"> Modules </a></li>
+</ul>
+
+<script>
+function click_sub(url,descripts){
+	$('#modulesubmenu').load(url);
+	var replacehtml = descripts;
+	$('#modulemenu h1 a').html(descripts);
+};
+</script>
