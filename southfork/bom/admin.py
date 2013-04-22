@@ -1,4 +1,4 @@
-from bom.models import *
+from southfork.bom.models import ProductInfo, BOMInfo, Components
 from django.contrib import admin
 
 admin.site.register(ProductInfo)

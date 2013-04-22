@@ -1,10 +1,10 @@
 from django import forms
-from bom.models import *
+from southfork.bom.models import ProductInfo, BOMInfo, Components
 
 class ProductInfo_Form(forms.ModelForm):
 	class Meta:
 		model=ProductInfo
-        exclude=('created_at', 'updated_at',)
+		exclude=('created_at', 'updated_at',)
 
 class BOMInfo_Form(forms.ModelForm):
 	class Meta:

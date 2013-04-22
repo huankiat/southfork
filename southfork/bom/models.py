@@ -12,7 +12,7 @@ class ProductInfo(models.Model):
     Active = models.BooleanField()
     BOMID = models.ManyToManyField('self', through='BOMInfo', symmetrical=False, null = True, blank = True)
     TheoreticalCycleTime=models.IntegerField()
-    ProductFile=models.FileField(upload_to="c:/users/dilan/documents/djcode/wss code/product/uploaded_productfiles", blank=True, null=True)
+    ProductFile=models.FileField(upload_to="/productfiles", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

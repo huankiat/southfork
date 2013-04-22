@@ -2,8 +2,8 @@
 from django.shortcuts import render_to_response, get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from bom.models import ProductInfo, BOMInfo, Components
-from bom.forms import ProductInfo_Form, BOMInfo_Form, Components_Form
+from southfork.bom.models import ProductInfo, BOMInfo, Components
+from southfork.bom.forms import ProductInfo_Form, BOMInfo_Form, Components_Form
 
 def product_view(request, template_name):
     product_list = ProductInfo.objects.all()
