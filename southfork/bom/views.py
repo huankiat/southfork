@@ -12,7 +12,6 @@ def product_view(request, template_name):
 def product_add(request, template_name):
     if request.method == 'POST':
         productinfoform = ProductInfo_Form(request.POST, request.FILES)
-#        productinfoform = ProductInfo_Form(request.POST, request.FILES)
         if productinfoform.is_valid():
             productinfoform.save()
             return HttpResponseRedirect('/bom/productinfo/')

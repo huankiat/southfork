@@ -34,22 +34,23 @@
 	{% for p in product_list %}
 	<tr>
 		<td>{{ p.part_number }}</td>
-		<td>{{ p.Description }}</td>
-		<td>{{ p.ProductGeneration }}</td>
-		<td>{{ p.Revision }}</td>
-		<td>{{ p.ProductCategory }}</td>
-		<td>{{ p.TODate }}</td>
-		<td>{{ p.Active }}</td>
-		<td><a href="/bom/Components/{{ p.BOMID }}/">{{ p.BOMID }}</a></td>
-		<td>{{ p.TheoreticalCycleTime }}</td>
+		<td>{{ p.description }}</td>
+		<td>{{ p.product_generation }}</td>
+		<td>{{ p.revision }}</td>
+		<td>{{ p.product_category }}</td>
+		<td>{{ p.to_date }}</td>
+		<td>{{ p.active }}</td>
+		<td><a href="/bom/Components/{{ p.bom_number }}/">{{ p.bom_number }}</a></td>
+		<td>{{ p.theoretical_cycle_time }}</td>
 		<td>{{ p.created_at }}</td>
 		<td>{{ p.updated_at }}</td>
-		<td><a href="c:/users/dilan/documents/djcode/wss code/product/uploaded_productfiles/{{ p.ProductFile }}/">File</a></td>
-		<td><a href="/bom/productinfo/product_delete/{{ p.ProductID }}/">Delete</a></td>
+		<td><a href="c:/users/dilan/documents/djcode/wss code/product/uploaded_productfiles/{{ p.product_file }}/">File</a></td>
+		<td><a href="/bom/productinfo/product_delete/{{ p.part_number }}/">Delete</a></td>
 		<td>Edit</td>
 		
 	</tr>
 	{% endfor %}
 	</table>
 </ul>
+
 

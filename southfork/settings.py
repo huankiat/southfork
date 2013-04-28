@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'C:/Users/Dilan/Documents/djcode/wss code/product/sqlite3.db',  # Or path to database file if using sqlite3.
+        'NAME': '/Users/Dilan/Documents/github/southfork/sqlite3.db',  # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -48,7 +48,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'C:/users/dilan/documents/djcode/wss code/product/uploaded_productfiles'
+MEDIA_ROOT = '/users/dilan/documents/github/southfork/southfork/privatemedia/productfiles'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -109,7 +109,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    'C:/Users/Dilan/Documents/djcode/WSS code/product/mytemplates'
+    '/Users/Dilan/Documents/github/southfork/southfork/templates'
 )
 
 INSTALLED_APPS = (
@@ -123,7 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'bom'
+    'southfork.bom'
 )
 
 # A sample logging configuration. The only tangible logging
