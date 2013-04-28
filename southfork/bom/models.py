@@ -17,6 +17,11 @@ class ProductInfo(models.Model):
 
     class Meta:
         ordering = ['part_number']
+        
+    @models.permalink
+    def get_absolute_url(self):
+        return ('',(),{'part_number':self.part_number}) #need to add product view partnumber
+    
 
     def __unicode__(self):
         return u"%s %s %s %s" % (self.part_number, self.description, self.product_generation, self.product_category)

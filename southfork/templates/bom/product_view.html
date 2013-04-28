@@ -40,7 +40,13 @@
 		<td>{{ p.product_category }}</td>
 		<td>{{ p.to_date }}</td>
 		<td>{{ p.active }}</td>
-		<td><a href="/bom/Components/{{ p.bom_number }}/">{{ p.bom_number }}</a></td>
+		{% if p.bom_number %}
+			{% for bom in p.bom_number.all %}
+				<td><a href="/bom/Components/{{ bom.get_absolute_url}}/">{{ bom.part_number }}</a></td>
+			{% endfor %}
+		{% else %}
+			<td>No child component</td>
+		{% endif %}
 		<td>{{ p.theoretical_cycle_time }}</td>
 		<td>{{ p.created_at }}</td>
 		<td>{{ p.updated_at }}</td>
