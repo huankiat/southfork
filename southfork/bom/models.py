@@ -1,17 +1,16 @@
 from django.db import models
 
-
 class ProductInfo(models.Model):
     part_number = models.CharField(max_length=30,primary_key=True,unique=True,null=False)
     description = models.CharField(max_length=60)
-    product_generation = models.CharField(max_length=30)
-    revision = models.DecimalField(max_digits=10, decimal_places=5)
-    product_category = models.CharField(max_length=30)
+    product_generation = models.CharField(max_length=30, blank=True)
+    revision = models.DecimalField(max_digits=10, decimal_places=5, null=True, blank=True)
+    product_category = models.CharField(max_length=30, blank=True)
     to_date = models.DateField()
     active = models.BooleanField()
     bom_number = models.ManyToManyField('self', through='BOMInfo', symmetrical=False, blank=True, null=True)
     theoretical_cycle_time=models.IntegerField()
-    product_file=models.FileField(upload_to="c:/users/dilan/documents/djcode/wss code/product/uploaded_productfiles", blank=True, null=True)
+    product_file=models.FileField(upload_to="/product/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -20,7 +19,7 @@ class ProductInfo(models.Model):
         
     @models.permalink
     def get_absolute_url(self):
-        return ('product_detail',(),{'part_number':self.part_number}) #need to add product view partnumber
+        return ('southfork.bom.views.product_detail',(),{'part_number':self.part_number}) #need to add product view partnumber
     
 
     def __unicode__(self):

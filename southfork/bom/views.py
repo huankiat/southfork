@@ -22,7 +22,7 @@ def product_add(request, template_name):
 def product_detail(request, template_name, partnumber):
     productdetail = ProductInfo.objects.all()
     pd=ProductInfo.objects.get(part_number=partnumber)
-    return render(request, template_name, {'productdetail': productdetail})
+    return render(request, template_name,locals())
 
 def product_delete(request, product_ID):
     pd = ProductInfo.objects.get(ProductID=product_ID)
