@@ -1,31 +1,31 @@
+{% extends "bom/bom_base.html" %}
 
-<h1>{{ ProductInfo.ProductID }}</h1>
-
-<ul>
-	<table border="1" style="width:200px;">
-	<tr class="headers">
-		<td>Part Number</td>
-		<td>Description</td>
-		<td>Product Generation</td>
-		<td>Revision</td>
-		<td>Product Category</td>
-		<td>TO Date</td>
-		<td>Active (yes/no)</td>
-		<td>BOM</td>
-	</tr>
-	
-	<tr>
-		<td>{{ pd.part_number }}</td>
-		<td>{{ pd.description }}</td>
-		<td>{{ pd.product_generation }}</td>
-		<td>{{ pd.revision }}</td>
-		<td>{{ pd.product_category }}</td>
-		<td>{{ pd.to_date }}</td>
-		<td>{{ pd.active }}</td>
-		<td>{{ pd.bom_number }}</td>
+{% block main_content %}
+	<h1>{{ ProductInfo.ProductID }}</h1>
+	<table class="table">
+		<tr>
+			<th>Part Number</th>
+			<th>Description</th>
+			<th>Product Generation</th>
+			<th>Revision</th>
+			<th>Product Category</th>
+			<th>TO Date</th>
+			<th>Active (yes/no)</th>
+			<th>BOM</th>
+		</tr>
 		
-	</tr>
-	
+		<tr>
+			<td>{{ pd.part_number }}</td>
+			<td>{{ pd.description }}</td>
+			<td>{{ pd.product_generation }}</td>
+			<td>{{ pd.revision }}</td>
+			<td>{{ pd.product_category }}</td>
+			<td>{{ pd.to_date }}</td>
+			<td>{{ pd.active }}</td>
+			<td>{{ pd.bom_number }}</td>
+			
+		</tr>
+		
 	</table>
-</ul>
+{% endblock %}
 

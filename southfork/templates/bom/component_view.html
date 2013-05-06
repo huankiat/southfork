@@ -1,4 +1,6 @@
+{% extends "bom/bom_base.html" %}
 
+{% block main_content %}
 <h1>{{ "Components View" }}</h1>
 
 <form METHOD="LINK" ACTION="/bom/Components/add_components/">
@@ -9,20 +11,18 @@
 <INPUT TYPE="submit" VALUE="Back to Product View">
 </form>
 
-
-<ul>
-	<table border="1" style="width:200px;">
-	<tr class="headers">
-		<td>ComponentID</td>
-		<td>BOMID</td>
-		<td>Description</td>
-		<td>ComponentName</td>
-		<td>Revision</td>
-		<td>TODate</td>
-		<td>ComponentCategory</td>
-		<td>Manufacturers</td>
-		<td>ComponentDrawing</td>
-		<td>Delete</td>
+<table class="table">
+	<tr>
+		<th>ComponentID</th>
+		<th>BOMID</th>
+		<th>Description</th>
+		<th>ComponentName</th>
+		<th>Revision</th>
+		<th>TODate</th>
+		<th>ComponentCategory</th>
+		<th>Manufacturers</th>
+		<th>ComponentDrawing</th>
+		<th>Delete</th>
 	</tr>
 	{% for p in components_list %}
 	<tr>
@@ -35,11 +35,11 @@
 		<td>{{ p.ComponentCategory }}</td>
 		<td>{{ p.Manufacturers }}</td>
 		<td>{{ p.ComponentDrawing }}</td>
-		<td><a href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
+		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
 		<td>Edit</td>
 		
 	</tr>
 	{% endfor %}
-	</table>
-</ul>
+</table>
 
+{% endblock %}

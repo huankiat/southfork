@@ -1,7 +1,11 @@
+{% extends "bom/bom_base.html" %}
+
+{% block main_content %}
 <h1>{{ "Add New BOM ID" }}</h1>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="" method="post">{% csrf_token %}
-{{ bominforform.as_p }}
-<input type="submit" value="Submit" />
+	{{ bominforform.as_p }}
+	<input type="submit" value="Submit" />
 </form>
+{% endblock %}

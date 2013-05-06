@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+	<table class="table">
+		<tr><th>First Name</th><td> {{ user.first_name }}</td></tr>
+		<tr><th>Last Name</th><td> {{ user.last_name }}</td></tr>
+		<tr><th>Email</th><td> <a href="mailto:{{user.email}}">{{ user.email }}</a></td></tr>
+		<tr><th>Primary Phone</th><td> {{ profile.Primary_Phone }}</td></tr>
+		<tr><th>Alternative Phone</th><td> {{ profile.Alt_Phone }}</td></tr>
+		<tr><th>Company Name</th><td> {{ profile.company_name }}</td></tr>
+		<tr><th>Address (1)</th><td> {{ profile.Address_1 }}</td></tr>
+		<tr><th>Address (2)</th><td> {{ profile.Address_2 }}</td></tr>
+		<tr><th>City</th><td> {{ profile.City }}</td></tr>
+		<tr><th>Postal Code</th><td> {{ profile.Postal_Code }}</td></tr>
+		<tr><th>Region/State</th><td> {{ profile.region_state }}</td></tr>
+		<tr><th>Country</th><td> {{ profile.Country }}</td></tr>
+	</table>
+	</br>
+	
+{% else %}
+	<h2>Please login first</h2>
+{% endif %}
+
+{% endblock %}
+

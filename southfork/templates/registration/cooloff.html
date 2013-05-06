@@ -1,0 +1,9 @@
+{% extends "front.html" %}
+
+{% block main_body %}
+
+<h1>Maximum Login Attempts Reached</h1>
+<p>You have reached the maximum login attempts - your account has been locked to prevent unauthorized access.</p>
+<p>Please wait for {{cooloff_time}} hour before trying again or request to reset your password <a href="/password_reset/">here</a></p>
+
+{% endblock %}

@@ -1,21 +1,36 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="/static/global.css">
-	<script src="/static/jquery.1.7.2.js"></script>
-    <script src="/static/menuscripts.js"></script>
-    <script src="/static/jquery-ui-1/js/jquery-ui-1.8.22.custom.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/smoothness/jquery-ui-1.10.0.custom.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<script src="/static/js/jquery-1.9.0.min.js"></script>
+	<script src="/static/js/jquery-ui-1.10.0.custom.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 
  	<title>SouthFork Project - BOM Prototype</title>
 </head>
 
 <body>
     
-    <div id = "main">
-        {% block content %}{% endblock %}
+    <div class="container-fluid">
+    	<div class="row-fluid">
+        	{% block header %}{% endblock %}
+        <div>
+        
+    	<div class="row-fluid">
+    		{% block menu %}{% endblock %}	
+    	</div>
+    	
+    	<div class="row-fluid">
+        	{% block content %}{% endblock %}
+        <div>
+        
+        <div class="row-fluid">
+        	{% block footer %}{% endblock %}
+        <div>
     </div>
-</div>
+
   
    
 </body>

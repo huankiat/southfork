@@ -1,4 +1,6 @@
+{% extends "bom/bom_base.html" %}
 
+{% block main_content %}
 <h1>{{ "BOM View" }}</h1>
 
 <form METHOD="LINK" ACTION="/bom/BOMInfo/add_bom/">
@@ -10,23 +12,21 @@
 </form>
 
 
-<ul>
-	<table border="1" style="width:200px;">
-	<tr class="headers">
-		<td>BOM ID</td>
-		<td>Description</td>
-		<td>Delete</td>
-		<td>Edit</td>
+<table class="table">
+	<tr>
+		<th>BOM ID</th>
+		<th>Description</th>
+		<th>Delete</th>
+		<th>Edit</th>
 	</tr>
 	{% for p in bom_list %}
 	<tr>
 		<td>{{ p.BOMID }}</td>
 		<td>{{ p.Description }}</td>
-		<td><a href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
+		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
 		<td>Edit</td>
 		
 	</tr>
 	{% endfor %}
-	</table>
-</ul>
-
+</table>
+{% endblock %}

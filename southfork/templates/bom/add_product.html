@@ -1,8 +1,11 @@
+{% extends "bom/bom_base.html" %}
+
+{% block main_content %}
 <h1>{{ "Add New Product" }}</h1>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
-{{ productinfoform.as_p }}
-<input type="submit" value="Submit" />
+	{{ productinfoform.as_p }}
+	<input type="submit" value="Submit" />
 </form>
-{# tell multipart form}
+{% endblock %}
