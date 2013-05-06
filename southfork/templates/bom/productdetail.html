@@ -1,0 +1,31 @@
+
+<h1>{{ ProductInfo.ProductID }}</h1>
+
+<ul>
+	<table border="1" style="width:200px;">
+	<tr class="headers">
+		<td>Part Number</td>
+		<td>Description</td>
+		<td>Product Generation</td>
+		<td>Revision</td>
+		<td>Product Category</td>
+		<td>TO Date</td>
+		<td>Active (yes/no)</td>
+		<td>BOM</td>
+	</tr>
+	
+	<tr>
+		<td>{{ pd.part_number }}</td>
+		<td>{{ pd.description }}</td>
+		<td>{{ pd.product_generation }}</td>
+		<td>{{ pd.revision }}</td>
+		<td>{{ pd.product_category }}</td>
+		<td>{{ pd.to_date }}</td>
+		<td>{{ pd.active }}</td>
+		<td>{{ pd.bom_number }}</td>
+		
+	</tr>
+	
+	</table>
+</ul>
+
