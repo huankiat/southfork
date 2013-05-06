@@ -19,8 +19,9 @@ def product_add(request, template_name):
         productinfoform=ProductInfo_Form()
     return render(request, template_name, {'productinfoform': productinfoform})
 
-def product_detail(request, template_name):
+def product_detail(request, template_name, partnumber):
     productdetail = ProductInfo.objects.all()
+    pd=ProductInfo.objects.get(part_number=partnumber)
     return render(request, template_name, {'productdetail': productdetail})
 
 def product_delete(request, product_ID):
