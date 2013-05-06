@@ -33,7 +33,7 @@
 	</tr>
 	{% for p in product_list %}
 	<tr>
-		<td>{{ p.part_number }}</td>
+		<td><a href="/bom/productinfo/{{ p.part_number }}/">{{ p.part_number }}</a></td>
 		<td>{{ p.description }}</td>
 		<td>{{ p.product_generation }}</td>
 		<td>{{ p.revision }}</td>

@@ -20,7 +20,7 @@ class ProductInfo(models.Model):
         
     @models.permalink
     def get_absolute_url(self):
-        return ('',(),{'part_number':self.part_number}) #need to add product view partnumber
+        return ('product_detail',(),{'part_number':self.part_number}) #need to add product view partnumber
     
 
     def __unicode__(self):
