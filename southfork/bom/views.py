@@ -18,6 +18,7 @@ def product_add(request, template_name):
     else:
         productinfoform=ProductInfo_Form()
     return render(request, template_name, {'productinfoform': productinfoform})
+#TODO: HK please check below code and reference line line 9 in url.py
 
 def product_detail(request, template_name, partnumber):
     productdetail = ProductInfo.objects.all()
