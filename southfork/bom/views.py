@@ -34,7 +34,7 @@ def product_delete(request, part_number):
     pd = ProductInfo.objects.get(part_number=part_number)
     pd.delete()
     return redirect('/bom/productinfo/')
-
+#
 @login_required(login_url='/account/login/')
 def bom_view(request, template_name):
     bom_list = BOMInfo.objects.all()

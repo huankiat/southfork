@@ -48,7 +48,7 @@ class BOMInfo(models.Model):
     component_number=models.ForeignKey(Components)    
 #    bom_number=models.ForeignKey(ProductInfo)
     description = models.CharField(max_length=100)
-    
+#    
     class Meta:
         ordering = ['parent']
 #        ordering=['bom_number']
