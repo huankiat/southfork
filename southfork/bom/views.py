@@ -30,8 +30,8 @@ def product_detail(request, template_name, partnumber):
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))
 
 @login_required(login_url='/account/login/')
-def product_delete(request, product_ID):
-    pd = ProductInfo.objects.get(ProductID=product_ID)
+def product_delete(request, part_number):
+    pd = ProductInfo.objects.get(part_number=part_number)
     pd.delete()
     return redirect('/bom/productinfo/')
 

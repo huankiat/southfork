@@ -2,7 +2,7 @@
 
 {% block main_content %}
 <h1>{{ "BOM View" }}</h1>
-
+<h2> test BOM view </h2>
 <form METHOD="LINK" ACTION="/bom/BOMInfo/add_bom/">
 <INPUT TYPE="submit" VALUE="Add BOM">
 </form>
@@ -21,10 +21,21 @@
 	</tr>
 	{% for p in bom_list %}
 	<tr>
-		<td>{{ p.BOMID }}</td>
-		<td>{{ p.Description }}</td>
+	<!--<td>{{ p.parent }}</td> -->
+        
+		<td>{{ p.description }}</td>
+        <td>{{ p.component_number }}</td>
+        <td>{{ p.qty }}</td>
 		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
 		<td>Edit</td>
+        
+        {% if p.parent.all %}
+			{% for bom in p.parent.all %}
+				<td><a href="{{ bom.get_absolute_url}}">{{ bom.qty }}</a></td>
+			{% endfor %}
+		{% else %}
+			<td>N/A</td>
+		{% endif %}
 		
 	</tr>
 	{% endfor %}

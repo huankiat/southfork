@@ -13,6 +13,7 @@ class ProductInfo(models.Model):
     product_file=models.FileField(upload_to="/product/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+#    productID=models.CharField (max_length=10)
 
     class Meta:
         ordering = ['part_number']
@@ -43,8 +44,15 @@ class Components(models.Model):
 class BOMInfo(models.Model):
     parent= models.ForeignKey(ProductInfo, related_name='parent')
     child= models.ForeignKey(ProductInfo, related_name='child')
+    qty=models.IntegerField()
+    component_number=models.ForeignKey(Components)    
+#    bom_number=models.ForeignKey(ProductInfo)
     description = models.CharField(max_length=100)
     
     class Meta:
         ordering = ['parent']
-
+#        ordering=['bom_number']
+#    def get_absolute_url(self):
+#        return ('southfork.bom.views.product_detail',(),{'partnumber':self.part_number})
+#    def __unicode__(self):
+#        return u"%s %s %s %s %s" % (self.component_number, self.description, self.component_name, self.component_category, self.manufacturer)
