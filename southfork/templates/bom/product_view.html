@@ -18,7 +18,7 @@
 <table class="table">
 	<tr>
 		<th>Part Number</th>
-		<th>Description</th>
+        <th>Description</th>
 		<th>Product Generation</th>
 		<th>Revision</th>
 		<th>Product Category</th>
@@ -34,7 +34,14 @@
 	</tr>
 	{% for p in product_list %}
 	<tr>
-		<td><a href="{{ p.get_absolute_url}}">{{ p.part_number }}</a></td>
+		<!-- <td><a href="{{ p.get_absolute_url}}">{{ p.part_number }}</a></td> -->
+        {% if p.part_number.all %}
+			{% for bom in p.part_number.all %}
+				<td><a href="{{ bom.get_absolute_url}}">{{ bom.description }}</a></td>
+			{% endfor %}
+		{% else %}
+			<td>N/A</td>
+		{% endif %}
 		<td>{{ p.description }}</td>
 		<td>{{ p.product_generation }}</td>
 		<td>{{ p.revision }}</td>

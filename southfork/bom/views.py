@@ -3,8 +3,8 @@ from django.shortcuts import render_to_response, get_object_or_404, render, redi
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from southfork.bom.models import ProductInfo, BOMInfo, Components
-from southfork.bom.forms import ProductInfo_Form, BOMInfo_Form, Components_Form
+from southfork.bom.models import ProductInfo, BOMInfo
+from southfork.bom.forms import ProductInfo_Form, BOMInfo_Form
 
 @login_required(login_url='/account/login/')
 def product_view(request, template_name):

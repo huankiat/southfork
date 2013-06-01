@@ -1,5 +1,5 @@
 from django import forms
-from southfork.bom.models import ProductInfo, BOMInfo, Components
+from southfork.bom.models import ProductInfo, BOMInfo
 
 class ProductInfo_Form(forms.ModelForm):
 	class Meta:
@@ -10,9 +10,9 @@ class BOMInfo_Form(forms.ModelForm):
 	class Meta:
 		model=BOMInfo
 
-class Components_Form(forms.ModelForm):
-	class Meta:
-		model=Components
+#class Components_Form(forms.ModelForm):
+#	class Meta:
+#		model=Components
 
 #class Product_BOM_History_Form(forms.ModelForm):
 #    class Meta:
