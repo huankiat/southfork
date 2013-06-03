@@ -35,13 +35,7 @@
 	{% for p in product_list %}
 	<tr>
 		<td><a href="{{ p.get_absolute_url}}">{{ p.part_number }}</a></td>
-        {% if p.component.all %}
-			{% for bom in p.component.all %}
-				<td><a href="{{ bom.get_absolute_url}}">{{ bom.part_number }}</a></td>
-			{% endfor %}
-		{% else %}
-			<td>N/A</td>
-		{% endif %}
+		<td>{{ p.component }}</td>
 		<td>{{ p.description }}</td>
 		<td>{{ p.product_generation }}</td>
 		<td>{{ p.revision }}</td>
