@@ -18,13 +18,13 @@
 <table class="table">
 	<tr>
 		<th>Part Number</th>
+        <th>Component</th>
         <th>Description</th>
 		<th>Product Generation</th>
 		<th>Revision</th>
 		<th>Product Category</th>
 		<th>TO Date</th>
 		<th>Active (yes/no)</th>
-		<th>BOM ID</th>
 		<th>Theoretical Cycle Time</th>
 		<th>Created Date/Time</th>
 		<th>Updated Date/Time</th>
@@ -34,10 +34,10 @@
 	</tr>
 	{% for p in product_list %}
 	<tr>
-		<!-- <td><a href="{{ p.get_absolute_url}}">{{ p.part_number }}</a></td> -->
-        {% if p.part_number.all %}
-			{% for bom in p.part_number.all %}
-				<td><a href="{{ bom.get_absolute_url}}">{{ bom.description }}</a></td>
+		<td><a href="{{ p.get_absolute_url}}">{{ p.part_number }}</a></td>
+        {% if p.component.all %}
+			{% for bom in p.component.all %}
+				<td><a href="{{ bom.get_absolute_url}}">{{ bom.part_number }}</a></td>
 			{% endfor %}
 		{% else %}
 			<td>N/A</td>
@@ -48,13 +48,6 @@
 		<td>{{ p.product_category }}</td>
 		<td>{{ p.to_date }}</td>
 		<td>{{ p.active }}</td>
-		{% if p.bom_number.all %}
-			{% for bom in p.bom_number.all %}
-				<td><a href="{{ bom.get_absolute_url}}">{{ bom.part_number }}</a></td>
-			{% endfor %}
-		{% else %}
-			<td>N/A</td>
-		{% endif %}
 		<td>{{ p.theoretical_cycle_time }}</td>
 		<td>{{ p.created_at }}</td>
 		<td>{{ p.updated_at }}</td>

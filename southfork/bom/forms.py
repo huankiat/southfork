@@ -4,7 +4,7 @@ from southfork.bom.models import ProductInfo, BOMInfo
 class ProductInfo_Form(forms.ModelForm):
 	class Meta:
 		model=ProductInfo
-		exclude=('created_at', 'updated_at', 'bom_number',)
+		exclude=('created_at', 'updated_at', 'component',)
 
 class BOMInfo_Form(forms.ModelForm):
 	class Meta:

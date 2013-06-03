@@ -1,23 +1,22 @@
 from django.db import models
 
 class ProductInfo(models.Model):
-#    part_number = models.CharField(max_length=30,primary_key=True,unique=True,null=False)
-    part_number = models.ManyToManyField('self', through='BOMInfo', symmetrical=False, blank=True, null=True)
+    part_number = models.CharField(max_length=30,primary_key=True,unique=True,null=False)
+    component = models.ManyToManyField('self', through='BOMInfo', symmetrical=False, blank=True, null=True)
     description = models.CharField(max_length=60)
     product_generation = models.CharField(max_length=30, blank=True)
     revision = models.DecimalField(max_digits=10, decimal_places=5, null=True, blank=True)
     product_category = models.CharField(max_length=30, blank=True)
     to_date = models.DateField()
     active = models.BooleanField()
-#    bom_number = models.ManyToManyField('self', through='BOMInfo', symmetrical=False, blank=True, null=True)
     theoretical_cycle_time=models.IntegerField()
     product_file=models.FileField(upload_to="/product/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-#    productID=models.CharField (max_length=10)
+
 
     class Meta:
-        ordering = []
+        ordering = ['part_number']
         
     @models.permalink
     def get_absolute_url(self):
@@ -25,7 +24,7 @@ class ProductInfo(models.Model):
     
 
     def __unicode__(self):
-        return u"%s %s %s" % (self.description, self.product_generation, self.product_category)
+        return u"%s %s %s %s" % (self.part_number, self.description, self.product_generation, self.product_category)
 
 #class Components(models.Model):
 #    component_number = models.CharField(max_length=50,primary_key=True,unique=True,null=False)
@@ -45,7 +44,7 @@ class ProductInfo(models.Model):
 class BOMInfo(models.Model):
     parent= models.ForeignKey(ProductInfo, related_name='parent')
     child= models.ForeignKey(ProductInfo, related_name='child')
-    qty=models.IntegerField()
+#    qty=models.IntegerField()
 #    component_number=models.ForeignKey(Components)    
 #    bom_number=models.ForeignKey(ProductInfo)
     description = models.CharField(max_length=100)
