@@ -9,6 +9,7 @@ class ProductInfo_Form(forms.ModelForm):
 class BOMInfo_Form(forms.ModelForm):
 	class Meta:
 		model=BOMInfo
+		exclude=('comps',)
 
 class Components_Form(forms.ModelForm):
 	class Meta:

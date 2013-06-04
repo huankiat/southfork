@@ -13,30 +13,30 @@
 
 <table class="table">
 	<tr>
-		<th>ComponentID</th>
-		<th>BOMID</th>
-		<th>Description</th>
-		<th>ComponentName</th>
-		<th>Revision</th>
-		<th>TODate</th>
-		<th>ComponentCategory</th>
-		<th>Manufacturers</th>
-		<th>ComponentDrawing</th>
-		<th>Delete</th>
+		<th>Part Number</th>
+		<th>Quantity</th>
+#		<th>Description</th>
+#		<th>ComponentName</th>
+#		<th>Revision</th>
+#		<th>TODate</th>
+#		<th>ComponentCategory</th>
+#		<th>Manufacturers</th>
+#		<th>ComponentDrawing</th>
+#		<th>Delete</th>
 	</tr>
 	{% for p in components_list %}
 	<tr>
-		<td>{{ p.ComponentID }}</td>
-		<td>{{ p.BOMID }}</td>
-		<td>{{ p.Description }}</td>
-		<td>{{ p.ComponentName }}</td>
-		<td>{{ p.Revision }}</td>
-		<td>{{ p.TODate }}</td>
-		<td>{{ p.ComponentCategory }}</td>
-		<td>{{ p.Manufacturers }}</td>
-		<td>{{ p.ComponentDrawing }}</td>
-		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
-		<td>Edit</td>
+		<td>{{ p.part_number }}</td>
+		<td>{{ p.qty }}</td>
+#		<td>{{ p.Description }}</td>
+#		<td>{{ p.ComponentName }}</td>
+#		<td>{{ p.Revision }}</td>
+#		<td>{{ p.TODate }}</td>
+#		<td>{{ p.ComponentCategory }}</td>
+#		<td>{{ p.Manufacturers }}</td>
+#		<td>{{ p.ComponentDrawing }}</td>
+#		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
+#		<td>Edit</td>
 		
 	</tr>
 	{% endfor %}

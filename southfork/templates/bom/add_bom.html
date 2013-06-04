@@ -2,10 +2,12 @@
 
 {% block main_content %}
 <h1>{{ "Add New BOM ID" }}</h1>
+
+#TODO: HK/Xuan how to add multiple rows of data in one page?
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <h2> add bom test </h2>
 <form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
-	{{ bominforform.as_p }}
+	{{ bominfoform.as_p }}
 	<input type="submit" value="Submit" />
 </form>
 {% endblock %}

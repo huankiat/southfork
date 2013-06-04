@@ -14,30 +14,28 @@
 
 <table class="table">
 	<tr>
-		<th>Description</th>
-		<th>Component number</th>
-        <th>Quantity</th>
-		<th>Delete</th>
-		<th>Edit</th>
+		<th>Bom Number</th>
+#		<th>Component number</th>
+#        <th>Quantity</th>
+#		<th>Delete</th>
+#		<th>Edit</th>
 	</tr>
 	{% for p in bom_list %}
 	<tr>
-	<!--<td>{{ p.parent}}</td> -->
-        
-		<td>{{ p.description }}</td>
-        <td>{{ p.component_number }}</td>
-        <td>{{ p.qty }}</td>
-		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
-		<td>Edit</td>
-        
-        {% if p.parent.all %}
-			{% for bom in p.parent.all %}
-				<td><a href="{{ bom.get_absolute_url}}">{{ bom.qty }}</a></td>
-			{% endfor %}
-		{% else %}
-			<td>N/A</td>
-		{% endif %}
-		
+		<td>{{ p.bom_number}}</td>
+#		<td>{{ p.description }}</td>
+#        <td>{{ p.component_number }}</td>
+#        <td>{{ p.qty }}</td>
+#		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
+#		<td>Edit</td>
+#        
+#        {% if p.parent.all %}
+#			{% for bom in p.parent.all %}
+#				<td><a href="{{ bom.get_absolute_url}}">{{ bom.qty }}</a></td>
+#			{% endfor %}
+#		{% else %}
+#			<td>N/A</td>
+#		{% endif %}
 	</tr>
 	{% endfor %}
 </table>
