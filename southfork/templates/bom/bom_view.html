@@ -22,7 +22,7 @@
 	</tr>
 	{% for p in bom_list %}
 	<tr>
-		<td>{{ p.bom_number}}</td>
+		<td><a href="{{ p.get_absolute_url}}">{{ p.bom_number}}</a></td>
 #		<td>{{ p.description }}</td>
 #        <td>{{ p.component_number }}</td>
 #        <td>{{ p.qty }}</td>

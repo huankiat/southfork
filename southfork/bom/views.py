@@ -39,6 +39,13 @@ def bom_view(request, template_name):
     bom_list = BOMInfo.objects.all()
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))
 
+# working on the bom_detail
+@login_required(login_url='/account/login/')
+def bom_detail(request, template_name, bomnumber):
+    bomdetail = BOMInfo.objects.all()
+    bd=BOMInfo.objects.get(bom_number=bomnumber)
+    return render_to_response(template_name,locals(), context_instance=RequestContext(request))
+
 #TODO: HK/Xuan how to add multiple rows of data in one page? See add_bom.html and http://127.0.0.1:8000/bom/Components/add_components/
 @login_required(login_url='/account/login/')
 def bom_add(request, template_name):

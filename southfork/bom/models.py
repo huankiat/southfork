@@ -37,9 +37,11 @@ class BOMInfo(models.Model):
 #    
     class Meta:
         ordering = ['bom_number']
+
 #TODO: Dilan/Xuan - need to enable get absolute url for pulling up details under each bom number.
-#    def get_absolute_url(self):
-#        return ('southfork.bom.views.product_detail',(),{'partnumber':self.part_number})
+    def get_absolute_url(self):
+        return ('southfork.bom.views.bom_view',(),{'partnumber':self.bom_number})
+   
     def __unicode__(self):
         return u"%s" % (self.bom_number)
 
