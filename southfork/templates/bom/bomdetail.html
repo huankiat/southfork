@@ -1,0 +1,24 @@
+{% extends "bom/bom_base.html" %}
+
+{% block main_content %}
+	<h1>{{ BOMInfo.bom_number }}</h1>
+	<table class="table">
+		<tr>
+			<th>BOM Number</th>
+			<th>Components</th>
+		</tr>
+		
+		<tr>
+			<td>{{ bd.bom_number }}</td>
+			{% if bd.comps.all %}
+				{% for bom in bd.comps.all %}
+					<td><a href="{{ bom.get_absolute_url}}">{{ bom.part_number }}</a></td>
+				{% endfor %}
+			{% else %}
+				<td>N/A</td>
+			{% endif %}			
+		</tr>
+		
+	</table>
+{% endblock %}
+
