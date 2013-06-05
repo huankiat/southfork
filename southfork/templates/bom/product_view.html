@@ -4,21 +4,13 @@
 <h1>{{ "Product List" }}</h1>
 
 <form METHOD="LINK" ACTION="/bom/productinfo/add_product/">
-	<INPUT TYPE="submit" VALUE="Add Product">
+	<INPUT TYPE="submit" VALUE="Add New Product">
 </form>
 
-<form METHOD="LINK" ACTION="/bom/BOMInfo/">
-	<INPUT TYPE="submit" VALUE="View BOM">
-</form>
-
-<form METHOD="LINK" ACTION="/bom/Components/add_components/">
-	<INPUT TYPE="submit" VALUE="Add Components">
-</form>
 
 <table class="table">
 	<tr>
 		<th>Part Number</th>
-#        <th>Component</th>
         <th>Description</th>
 		<th>Product Generation</th>
 		<th>Revision</th>
@@ -35,7 +27,6 @@
 	{% for p in product_list %}
 	<tr>
 		<td><a href="{{ p.get_absolute_url}}">{{ p.part_number }}</a></td>
-#		<td>{{ p.component }}</td>
 		<td>{{ p.description }}</td>
 		<td>{{ p.product_generation }}</td>
 		<td>{{ p.revision }}</td>

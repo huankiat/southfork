@@ -70,7 +70,7 @@ def components_add(request, template_name):
         componentsform = Components_Form(request.POST, request.FILES)
         if componentsform.is_valid():
             componentsform.save()
-            return HttpResponseRedirect('/bom/productinfo/')
+            return HttpResponseRedirect('/bom/BOMInfo/')
     else:
         componentsform=Components_Form()
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))

@@ -1,6 +1,12 @@
 {% extends "bom/bom_base.html" %}
 
 {% block main_content %}
+
+<form METHOD="LINK" ACTION="/bom/Components/add_components/">
+<INPUT TYPE="submit" VALUE="Associate Components to BOM">
+</form>
+
+
 	<h1>{{ BOMInfo.bom_number }}</h1>
 	<table class="table">
 		<tr>
@@ -13,6 +19,7 @@
 			{% if bd.comps.all %}
 				{% for bom in bd.comps.all %}
 					<td><a href="{{ bom.get_absolute_url}}">{{ bom.part_number }}</a></td>
+					</tr><tr><td></td>
 				{% endfor %}
 			{% else %}
 				<td>N/A</td>
