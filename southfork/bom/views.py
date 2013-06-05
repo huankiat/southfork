@@ -39,7 +39,7 @@ def bom_view(request, template_name):
     bom_list = BOMInfo.objects.all()
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))
 
-# working on the bom_detail
+# working on the bom_detail, delete this row once link works
 @login_required(login_url='/account/login/')
 def bom_detail(request, template_name, bomnumber):
     bomdetail = BOMInfo.objects.all()
