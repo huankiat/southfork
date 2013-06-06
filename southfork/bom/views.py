@@ -39,14 +39,14 @@ def bom_view(request, template_name):
     bom_list = BOMInfo.objects.all()
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))
 
-# working on the bom_detail, delete this row once link works
+#TODO: Huankiat - please review rows 44-47 here and bomdetail.html file...qty is not showing up in bomdetail.html
 @login_required(login_url='/account/login/')
 def bom_detail(request, template_name, bomnumber):
     bomdetail = BOMInfo.objects.all()
-    bd=BOMInfo.objects.get(bom_number=bomnumber)
+    bdbn=BOMInfo.objects.get(bom_number=bomnumber)
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))
 
-#TODO: HK/Xuan how to add multiple rows of data in one page? See add_bom.html and http://127.0.0.1:8000/bom/Components/add_components/
+#TODO: Xuan how to add multiple rows of data in one page? See add_bom.html and http://127.0.0.1:8000/bom/Components/add_components/
 @login_required(login_url='/account/login/')
 def bom_add(request, template_name):
     if request.method == 'POST':
@@ -63,6 +63,12 @@ def components_view(request, template_name):
     components_list = Components.objects.all()
 #    cd = Components.objects.get(part_number=partnumber)
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))
+
+#@login_required(login_url='/account/login/')
+#def components_detail(request, template_name, compbomnumber):
+#    compdetail = Components.objects.all()
+#    cd=Components.objects.get(bom=compbomnumber)
+#    return render_to_response(template_name,locals(), context_instance=RequestContext(request))
 
 @login_required(login_url='/account/login/')
 def components_add(request, template_name):

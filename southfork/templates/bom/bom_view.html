@@ -24,18 +24,18 @@
 	<tr>
 		<td><a href="{{ p.get_absolute_url}}">{{ p.bom_number}}</a></td>
 <!--#		<td>{{ p.description }}</td>
-#        <td>{{ p.component_number }}</td>
-#        <td>{{ p.qty }}</td>
-#		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
-#		<td>Edit</td>
-#        
-#        {% if p.parent.all %}
-#			{% for bom in p.parent.all %}
-#				<td><a href="{{ bom.get_absolute_url}}">{{ bom.qty }}</a></td>
-#			{% endfor %}
-#		{% else %}
-#			<td>N/A</td>
-#		{% endif %} --!>
+        <td>{{ p.component_number }}</td>
+        <td>{{ p.qty }}</td>
+		<td><a class="btn btn-danger" href="/bom/mfgbom/bom_delete/{{ p.BOMID }}/">Delete</a></td>
+		<td>Edit</td>
+        
+        {% if p.parent.all %}
+			{% for bom in p.parent.all %}
+				<td><a href="{{ bom.get_absolute_url}}">{{ bom.qty }}</a></td>
+			{% endfor %}
+		{% else %}
+			<td>N/A</td>
+		{% endif %} --!>
 	</tr>
 	{% endfor %}
 </table>

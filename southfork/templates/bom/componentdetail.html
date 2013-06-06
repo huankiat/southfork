@@ -1,6 +1,7 @@
 {% extends "bom/bom_base.html" %}
 
 {% block main_content %}
+<h1>{{ "Component Details" }}</h1>
 
 <form METHOD="LINK" ACTION="/bom/Components/add_components/">
 <INPUT TYPE="submit" VALUE="Associate Components to BOM">
@@ -16,23 +17,24 @@
 		</tr>
 		
 		<tr>
-			<td>{{ bdbn.bom_number }}</td>
-			{% if bdbn.comps.all %}
-				{% for bom in bdbn.comps.all %}
+			<td>{{ cd.bom }}</td>
+			{% if cd.part_number.all %}
+				{% for bom in cd.part_number.all %}
 					<td><a href="{{ bom.get_absolute_url}}">{{ bom.part_number }}</a></td>
-					<td>{{ bom.qty }}</td>
 					</tr><tr><td></td>
 				{% endfor %}
 			{% else %}
 				<td>N/A</td>
-			{% endif %}	
+			{% endif %}
+			{% if cd.qty.all %}
+				{% for bom in cd.qty.all %}
+					<td>{{ bom.qty }}</a></td>
+					</tr><tr><td></td>
+				{% endfor %}
+			{% else %}
+				<td>N/A</td>
+			{% endif %}		
 		</tr>
-		<tr>
-		{% for p in bomdetail %}
-		<tr>
-			<td>{{ p.comps.qty }}</td>
-		</tr>
-		{% endfor %}
 		
 	</table>
 {% endblock %}
