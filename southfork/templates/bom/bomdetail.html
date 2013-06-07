@@ -17,10 +17,10 @@
 		
 		<tr>
 			<td>{{ bdbn.bom_number }}</td>
-			{% if bdbn.comps.all %}
-				{% for bom in bdbn.comps.all %}
-					<td><a href="{{ bom.get_absolute_url}}">{{ bom.part_number }}</a></td>
-					<td>{{ bom.qty }}</td>
+			{% if comps %}
+				{% for c in comps %}
+					<td><a href="{{ c.part_number.get_absolute_url}}">{{ c.part_number.part_number }}</a></td>
+					<td>{{ c.qty }}</td>
 					</tr><tr><td></td>
 				{% endfor %}
 			{% else %}
