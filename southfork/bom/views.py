@@ -26,7 +26,9 @@ def product_add(request, template_name):
 def product_detail(request, template_name, partnumber):
     productdetail = ProductInfo.objects.all()
     pd=ProductInfo.objects.get(part_number=partnumber)
+    boms=Components.objects.filter(part_number=pd)
     return render_to_response(template_name,locals(), context_instance=RequestContext(request))
+#TODO: code product detail to show bom items associated with each product
 
 #@login_required(login_url='/account/login/')
 def product_delete(request, part_number):

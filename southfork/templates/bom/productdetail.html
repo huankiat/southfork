@@ -22,7 +22,14 @@
 			<td>{{ pd.product_category }}</td>
 			<td>{{ pd.to_date }}</td>
 			<td>{{ pd.active }}</td>
-			<td>{{ pd.bom_number }}</td>
+			{% if boms %}
+				{% for b in boms %}
+					<td><a href="{{ b.bom.get_absolute_url}}">{{ b.bom.bom_number }}</a></td>
+					</tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				{% endfor %}
+			{% else %}
+				<td>N/A</td>
+			{% endif %}	
 			
 		</tr>
 		
